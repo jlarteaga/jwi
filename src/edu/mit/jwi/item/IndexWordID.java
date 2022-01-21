@@ -57,7 +57,7 @@ public class IndexWordID implements IIndexWordID {
     public IndexWordID(String lemma, POS pos) {
     	if(pos == null)
     		throw new NullPointerException();
-    	lemma = lemma.toLowerCase().trim();
+    	lemma = lemma.trim();
     	if(lemma.length() == 0)
     		throw new IllegalArgumentException();
     	this.lemma = whitespace.matcher(lemma).replaceAll("_");

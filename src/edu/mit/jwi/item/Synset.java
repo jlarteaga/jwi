@@ -90,8 +90,6 @@ public class Synset implements ISynset {
     		throw new NullPointerException();
     	if(wordBuilders == null)
     		throw new NullPointerException();
-    	if(wordBuilders.isEmpty())
-    		throw new IllegalArgumentException();
         if(isAdjSat && isAdjHead)
         	throw new IllegalArgumentException();
         if((isAdjSat || isAdjHead) && lexFile.getNumber() != 0)
