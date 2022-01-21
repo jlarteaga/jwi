@@ -13,7 +13,7 @@ package edu.mit.jwi.data;
 import java.nio.charset.Charset;
 
 
-/** 
+/**
  * Classes implementing this interface have an associated Charset.
  *
  * @author Mark A. Finlayson
@@ -21,13 +21,13 @@ import java.nio.charset.Charset;
  * @since JWI 2.3.4
  */
 public interface IHasCharset {
-	
-	/** 
-	 * Returns the character set associated with this object.  May be <code>null</code>.
-	 *
-	 * @return the Charset associated this object, possibly <code>null</code>
-	 * @since JWI 2.3.4
-	 */
-	public Charset getCharset();
+
+    /**
+     * Returns the character set associated with this object.  May be <code>null</code>.
+     *
+     * @return the Charset associated this object, possibly <code>null</code>
+     * @since JWI 2.3.4
+     */
+    Charset getCharset();
 
 }
