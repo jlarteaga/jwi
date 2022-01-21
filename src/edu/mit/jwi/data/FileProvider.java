@@ -19,12 +19,12 @@ import edu.mit.jwi.item.Synset;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.locks.Lock;
@@ -710,7 +710,11 @@ public class FileProvider implements IDataProvider, ILoadable, ILoadPolicy {
     public static File toFile(URL url) {
         if (!url.getProtocol().equals("file"))
             throw new IllegalArgumentException("URL source must use 'file' protocol");
-        return new File(URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8));
+        try {
+            return new File(URLDecoder.decode(url.getPath(), "UTF-8"));
+        } catch(UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
